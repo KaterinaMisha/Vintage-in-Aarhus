@@ -1,0 +1,1371 @@
+@font-face {
+    font-family: 'CinzelDecorative';
+    src: url('fonts/CinzelDecorative-Regular.woff2') format('woff2'),
+         url('fonts/CinzelDecorative-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CinzelDecorative';
+    src: url('fonts/CinzelDecorative-Bold.woff2') format('woff2'),
+         url('fonts/CinzelDecorative-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CinzelDecorative';
+    src: url('fonts/CinzelDecorative-Black.woff2') format('woff2'),
+         url('fonts/CinzelDecorative-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+ .sacramento-regular {
+  font-family: "Sacramento", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.alice-regular {
+  font-family: "Alice", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body.home {
+    margin: 0;
+    padding: 0;
+    background-color: #EEEBE4; /* Цвет фона для главной страницы */
+}
+.home header {
+    background-color: #FFC2EC;  /* Розовый фон для шапки */
+    position: relative;  /* Чтобы псевдоэлементы ::before и ::after могли позиционироваться относительно header */
+    width: 100%; /* Ширина шапки на всю ширину страницы */
+}
+.home header::before, 
+.home header::after {
+    content: ""; /* Создаём пустой блок, без текста, иначе псевдоэлемент не отображается */
+    position: absolute; /* Абсолютное позиционирование относительно header */
+    left: 0; /* Левый край линии совпадает с левым краем header */
+    width: 100%;  /* Ширина линии равна ширине header */
+    height: 2px;      /* Толщина линии 2 пикселя */         
+    background-color: #251A66; /* Цвет линии — тёмно-синий */
+
+}
+.home header::before {
+    top: 5px; /* Отступ от верхнего края header 5 пикселей */
+}
+
+.home header::after {
+    bottom: 5px;  /* Отступ от нижнего края header 5 пикселей */
+}
+
+
+
+/* --- Меню --- */
+.home nav {
+max-width: 1200px; 
+margin: 0 auto; 
+padding: 5px 20px; 
+display: flex; 
+justify-content: space-between; 
+align-items: center;
+}
+
+.home nav a {
+    text-decoration: none;
+    color: #251A66; /* Цвет текста ссылок */
+    font-family: "Cinzel Decorative", serif; /* шрифт меню */
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: 0.25s ease;
+}
+
+.home nav a:hover {
+    transform: scale(1.08); /* Ссылка немного увеличивается при наведении */
+}
+
+/* --- Заголовок --- */
+.vintage-title {
+    font-family: "Cinzel Decorative", serif; 
+    font-weight: 700;
+    font-style: normal;
+    font-size: 100px;
+    line-height: 3;
+    letter-spacing: 2px;
+    color: #251A66;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 30px 0 50px 0;
+}
+
+
+#gallery {
+    width: 100%;
+    overflow: hidden;  
+}
+
+#gallery-track {
+    display: flex;
+    gap: 100px;     /* расстояние между картинками */
+    width: max-content;
+    will-change: transform;
+}
+.gallery-track img {
+    display: block;
+    height: 150px; /* можно задать одинаковую высоту, чтобы было ровно */
+    object-fit: cover;
+}
+
+.about-vintage h2 {
+    font-family: "Sacramento", cursive; 
+    font-size: 48px;
+    color: #EF5F18;
+    text-align: center;  
+    margin-bottom: 40px;
+}
+
+.about-vintage p {
+    font-family: "Alice", serif; 
+    font-size: 24px;
+    line-height: 1.6;
+    color: #EF5F18;
+    text-align: center;
+    max-width: 800px; /* ограничение ширины для длинных текстов */
+    margin: 0 auto 40px auto; /* центрирование и отступ снизу */
+    padding: 0; /* убираем фиксированные паддинги */ 
+}
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    h2.about-vintage {
+        font-size: 36px;
+    }
+    section p {
+        font-size: 20px;
+        max-width: 90%; /* меньше отступы на мобильных */
+    }
+}
+
+a {
+    text-decoration: none; 
+    color: inherit;        
+    outline: none;         
+}
+/* Карточки магазинов */
+
+.shop-name, .shop-name1, .shop-name2 {
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 10px;
+    display: block;       
+    text-align: center;   /* выравниваем названия по центру карточки */
+    margin-top: 20px;     /* отступ сверху внутри карточки */
+    color: #1E5128; 
+} 
+
+.shop-name1 { color: #8C1312; }
+.shop-name2 { color: #251A66; }
+/* Адреса магазинов */
+.shop-address, .shop-address1, .shop-address2 {
+    font-family: "Alice", serif;
+    font-size: 20px;
+    line-height: 25px;
+    display: block;        
+    text-align: center;   /* выравниваем адрес по центру карточки */
+    margin: 5px 0 10px;   /* отступы сверху и снизу */
+    color: #1E5128;       /* для shop-address1 можно другой цвет */
+}
+
+.shop-address1 { color: #8C1312; }
+.shop-address2 { color: #251A66; }
+
+/* Фото-контейнеры */
+.photo-container {
+    background-color: #F1ED92;
+    width: 320px;
+    height: 450px;
+    padding: 15px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; 
+} 
+.photo-container-blue {
+    background-color: #B8D3E8;
+}
+
+.photo-container-orange {
+    background-color: #EF5218;
+}
+
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Контейнер всех карточек */
+.shops-container {
+    display: flex;
+    flex-wrap: wrap;         /* перенос на следующую строку */
+    justify-content: space-around; 
+    gap: 40px;               /* расстояние между карточками */
+    margin-top: 50px;
+}
+
+/* Карточки магазинов */
+.shop-card {    
+    display: flex;            /* чтобы элементы внутри карточки можно было центрировать */
+    flex-direction: column;   /* фото, название, адрес и эллипс идут вертикально */
+    align-items: center;  
+    width: 350px; /* ширина = ширина фото + паддинги */
+    box-sizing: border-box;
+}
+.shop-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    width: 350px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Подъем карточки при наведении */
+.shop-card:hover {
+    transform: translateY(-10px) scale(1.03); /* приподнимаем и слегка увеличиваем */
+    
+}
+/* Разные тени для каждой карточки при наведении */
+.shops-container .shop-card:nth-child(1):hover {
+    box-shadow:   0 40px 80px 20px rgba(30, 81, 40, 0.95),
+        0 0 60px 10px rgba(30, 81, 40, 0.7);; 
+}
+.shops-container .shop-card:nth-child(2):hover {
+    box-shadow: 0 40px 80px 20px rgba(140, 19, 18, 0.95),
+        0 0 60px 10px rgba(140, 19, 18, 0.7); 
+}
+.shops-container .shop-card:nth-child(3):hover {
+    box-shadow: 0 40px 80px 20px rgba(37, 26, 102, 0.95),
+        0 0 60px 10px rgba(37, 26, 102, 0.7);
+}
+
+
+/* колебание фото при наведении */
+.shop-card:hover .photo-container img {
+    transform: rotate(-2deg); /* небольшое вращение */
+    animation: wiggle 0.3s ease forwards; 
+}
+
+/* возврат при уходе мыши */
+.photo-container img {
+    transition: transform 0.3s ease;
+}
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+    75% { transform: rotate(-1deg); }
+    100% { transform: rotate(0deg); }
+}
+.shop-card:hover .photo-container img {
+    animation: wiggle 0.3s ease forwards;
+}
+
+.price-ellipse {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.price-ellipse svg {
+    width: 220px; /* фиксированная ширина SVG, чтобы все одинаково */
+    height: 52px;
+}
+
+/* Магазин 1 */
+
+.ellipse-1 .ellipse-path {
+    fill: #1E5128;
+    stroke: #F1ED92;
+}
+
+.ellipse-1 .ellipse-text {
+    fill: #F1ED92;
+    font-size: 18px;
+    font-family: 'Alice', serif;
+}
+
+/* Магазин 2 */
+.ellipse-2 .ellipse-path {
+    fill: #8C1312;
+    stroke: #B8D3E8;
+}
+.ellipse-2 .ellipse-text {
+    fill: #B8D3E8;
+    font-size: 18px;
+    font-family: 'Alice', serif;
+}
+
+/* Магазин 3 */
+.ellipse-3 .ellipse-path {
+    fill: #251A66;
+    stroke: #EF5218;
+}
+.ellipse-3 .ellipse-text {
+    fill: #EF5218;
+    font-size: 18px;
+    font-family: 'Alice', serif;
+}
+
+.price-ellipse {
+    display: flex;               /* используем flex для центрирования SVG */
+    justify-content: center;     /* центрируем по горизонтали */
+    align-items: center;         /* центрируем по вертикали (если нужно) */
+    margin-top: 10px;            /* отступ сверху от фото */
+    width: 100%;                 /* чтобы заняло всю ширину карточки */
+}
+
+.price-ellipse svg {
+    max-width: 100%;             /* SVG подстраивается под ширину карточки */
+    height: auto;                /* сохраняем пропорции */
+    display: block;
+}
+  
+/* Kilo vintage sale фон и шапка*/
+
+body.kilovintagesale {
+    margin: 0;
+    padding: 0;
+    background-color: #FFC2EC; /* Цвет фона для главной страницы */
+}
+.kilovintagesale header {
+    background-color: #F1ED92;  /* Желтый фон для шапки */
+    position: relative;  /* Чтобы псевдоэлементы ::before и ::after могли позиционироваться относительно header */
+    width: 100%; /* Ширина шапки на всю ширину страницы */
+}
+.kilovintagesale header::before, 
+.kilovintagesale header::after {
+    content: ""; /* Создаём пустой блок, без текста, иначе псевдоэлемент не отображается */
+    position: absolute; /* Абсолютное позиционирование относительно header */
+    left: 0; /* Левый край линии совпадает с левым краем header */
+    width: 100%;  /* Ширина линии равна ширине header */
+    height: 2px;      /* Толщина линии 2 пикселя */         
+    background-color: #1E5128; /* Цвет линии — тёмно-зеленый */
+
+}
+.kilovintagesale header::before {
+    top: 5px; /* Отступ от верхнего края header 5 пикселей */
+}
+
+.kilovintagesale header::after {
+    bottom: 5px;  /* Отступ от нижнего края header 5 пикселей */
+}
+
+/* --- Меню для kilo vintage sale --- */
+.kilovintagesale nav {
+    max-width: 1200px; /* Ограничивает ширину меню */
+    margin: 0 auto; /* Центрирует меню по горизонтали */
+    padding: 5px 20px; /* Отступы внутри nav */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.kilovintagesale nav a {
+    text-decoration: none;
+    color: #1E5128; /* Цвет текста ссылок */
+    font-family: "Cinzel Decorative", serif; /* шрифт меню */
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: 0.25s ease;
+}
+
+.kilovintagesale nav a:hover {
+    transform: scale(1.08); /* Ссылка немного увеличивается при наведении */
+}
+
+/* --- Заголовок для kilo vintage sale --- */
+.kilo-hero {
+    position: relative;                 /* чтобы текст можно было позиционировать поверх */
+    background-image: url('image/kilo.png'); /* путь к твоему фото */
+    background-size: cover;             /* растягивает изображение, чтобы покрыть всю секцию */
+    background-position: center;        /* центрирует изображение */
+    height: 400px;                      /* высота секции (можно менять) */
+    display: flex;                      /* для центрирования текста */
+    justify-content: center;            /* горизонтально по центру */
+    align-items: center;     
+}
+.kilo-hero .kilo-title {
+    font-family: "Cinzel Decorative", serif; 
+    font-weight: 700;
+    font-style: normal;
+    font-size: 100px;
+    line-height: 3;
+    letter-spacing: 2px;
+    color: #F1ED92;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 30px 0 50px 0;
+}
+@media (max-width: 768px) {
+    .kilo-hero .kilo-title {
+        font-size: 50px;
+    }
+}
+/* --- Описание для kilo vintage sale --- */
+.about-kilo h2 {
+    font-family: "Sacramento", cursive; 
+    font-size: 48px;
+    color: #1E5128;
+    text-align: center;
+    
+}
+
+.about-kilo p {
+    font-family: "Alice", serif; 
+    font-size: 24px;
+    line-height: 1.5;
+    color: #1E5128;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    padding: 0 5%;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.horizontal-row-kilo  {
+    display: flex;              /* горизонтальное расположение блоков */
+    margin: 0;                  /* убираем внешние отступы */
+    padding: 0;                 /* убираем внутренние отступы */
+    width: 100%;               /* секция на всю ширину экрана */
+}
+
+/* Общие стили для блоков */
+.horizontal-row-kilo .block { 
+    flex: 1;                    /* каждый блок занимает равную ширину */
+    height: 400px;           /* фиксированная высота */
+    margin: 0;
+    padding: 0;
+    display: flex;           /* для центрирования контента внутри блока */
+    justify-content: center;
+    align-items: center;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* Фото */
+.photo-block img {
+    width: 100%;                /* фото растягивается на всю ширину блока */
+    height: 100%;               /* фото растягивается на всю высоту блока */
+    object-fit: cover;          /* кадрирование фото, чтобы заполнить блок */
+    display: block;             /* убираем пробелы под изображением */
+}
+
+/* Жeлтый */
+.yellow-block {
+    background-color: #F1ED92;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.yellow-block a {
+    color: #1E5128;
+    font-family: "Alice", serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.yellow-block a:hover {
+    transform: scale(1.05);
+    color: #1E5128;
+}
+
+/* Белый блок 1 */
+.white01-block {
+    background-color: #EEEBE4; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.white01-block {
+    background-color: #EEEBE4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+.white01-block h4 {
+    color: #1E5128;
+    font-family: "Sacramento", cursive;
+    font-size: 32px;
+    margin-bottom: 20px; /* ⬅ расстояние до текста */
+    text-align: center;
+}
+.white01-block p {
+    color: #1E5128;
+    font-family: "Alice", serif;
+    font-size: 20px;
+    line-height: 30px;
+    word-spacing: 1px;
+    width: 100%;     /* ✅ нормальная ширина текста */
+    padding: 0 30px;       /* центрирует блок текста */
+    text-align: center;
+}
+
+
+/* Белый блок 2 */
+.white02-block {
+    background-color: #EEEBE4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+.white02-block h4 {
+    color: #1E5128;
+    font-family: "Sacramento", cursive;
+    font-size: 32px;
+    margin-bottom: 20px; /* ⬅ расстояние до текста */
+    text-align: center;
+}
+.white02-block p {
+    color: #1E5128;
+    font-family: "Alice", serif;
+    font-size: 20px;
+    line-height: 30px;
+    word-spacing: 1px;
+    width: 100%;     /* ✅ нормальная ширина текста */
+    padding: 0 30px;       /* центрирует блок текста */
+    text-align: center;
+}
+@media (max-width: 900px) {
+    .horizontal-row-kilo {
+        flex-direction: column; /* блоки выстраиваются вертикально */
+        height: auto;           /* высота подстраивается под контент */
+    }
+
+    .horizontal-row-kilo .block {
+        width: 100%;
+        height: 300px;          /* можно уменьшить высоту для мобильного */
+    }
+
+    .photo-block img {
+        height: 100%;
+    }
+}
+
+
+
+.green-block {
+    background-color: #1E5128;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* Контейнер расписания */
+.green-block .schedule {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* два столбца одинаковой ширины */
+    gap: 10px 20px; /* вертикальный и горизонтальный промежуток */
+    text-align: center;
+}
+
+/* День недели */
+.green-block .schedule .day {
+    font-family: "Alice", serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #F1ED92;
+}
+
+/* Время */
+.green-block .schedule .time {
+    font-family: "Alice", serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #F1ED92;
+}
+
+.photo-block img {
+        height: 100%;
+    }
+.full-width-video {
+    width: 100%;
+    background-color: #FFC2EC;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-top: 56.25%;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+.video-container {
+    width: 100%;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+.video-container .caption {
+    text-align: center;
+    color: #1E5128;
+    font-family: "Sacramento", cursive;
+    font-size: 40px;
+    margin-top: 30px;
+}
+  
+.social-links {
+    text-align: center;
+    margin-top: 10px;        /* расстояние от надписи */
+    display: flex;
+    justify-content: center; /* горизонтальное расположение ссылок */
+    gap: 20px;               /* расстояние между ссылками */
+}
+
+.social-links a {
+    text-decoration: none;   
+    color: #1E5128;          /* цвет текста ссылок */
+    font-family: "Alice", serif;
+    font-size: 28px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #F1ED92;          /* цвет при наведении */
+    transform: scale(1.05);  /* лёгкое увеличение */
+}
+
+.additional-caption {
+    text-align: center;
+    color: #1E5128;                 /* цвет текста */
+    font-family: "Sacramento", cursive;
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 30px;                /* расстояние сверху от соцсетей */
+}
+
+
+body.genbrug1aarhus {
+    margin: 0;
+    padding: 0;
+    background-color: #8C1312; /* Цвет фона для главной страницы */
+}
+.genbrug1aarhus header {
+    background-color: #EEEBE4;  /* Бежевый фон для шапки */
+    position: relative;  /* Чтобы псевдоэлементы ::before и ::after могли позиционироваться относительно header */
+    width: 100%; /* Ширина шапки на всю ширину страницы */
+}
+.genbrug1aarhus header::before, 
+.genbrug1aarhus header::after {
+    content: ""; /* Создаём пустой блок, без текста, иначе псевдоэлемент не отображается */
+    position: absolute; /* Абсолютное позиционирование относительно header */
+    left: 0; /* Левый край линии совпадает с левым краем header */
+    width: 100%;  /* Ширина линии равна ширине header */
+    height: 2px;      /* Толщина линии 2 пикселя */         
+    background-color: #8C1312; /* Цвет линии — тёмно-красный */
+
+}
+.genbrug1aarhus header::before {
+    top: 5px; /* Отступ от верхнего края header 5 пикселей */
+}
+
+.genbrug1aarhus header::after {
+    bottom: 5px;  /* Отступ от нижнего края header 5 пикселей */
+}
+
+/* --- Меню для kilo vintage sale --- */
+.genbrug1aarhus nav {
+    max-width: 1200px; /* Ограничивает ширину меню */
+    margin: 0 auto; /* Центрирует меню по горизонтали */
+    padding: 5px 20px; /* Отступы внутри nav */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.genbrug1aarhus nav a {
+    text-decoration: none;
+    color: #8C1312; /* Цвет текста ссылок */
+    font-family: "Cinzel Decorative", serif; /* шрифт меню */
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: 0.25s ease;
+}
+
+.genbrug1aarhus nav a:hover {
+    transform: scale(1.08); /* Ссылка немного увеличивается при наведении */
+}
+/* --- Заголовок для Genbrug1Aarhus --- */
+.genbrug-hero {
+    position: relative;                 /* чтобы текст можно было позиционировать поверх */
+    background-image: url('image/genbrug.png'); /* путь к твоему фото */
+    background-size: cover;             /* растягивает изображение, чтобы покрыть всю секцию */
+    background-position: center;        /* центрирует изображение */
+    height: 400px;                      /* высота секции (можно менять) */
+    display: flex;                      /* для центрирования текста */
+    justify-content: center;            /* горизонтально по центру */
+    align-items: center;     
+}
+.genbrug-hero .genbrug-title {
+    font-family: "Cinzel Decorative", serif; 
+    font-weight: 700;
+    font-style: normal;
+    font-size: 100px;
+    line-height: 3;
+    letter-spacing: 2px;
+    color: #EEEBE4;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 30px 0 50px 0;
+}
+@media (max-width: 768px) {
+    .kilo-hero .kilo-title {
+        font-size: 50px;
+    }
+}
+/* --- Описание для Genbrug1Aarhus --- */
+.about-genbrug h2{
+    font-family: "Sacramento", cursive; 
+    font-size: 48px;
+    color: #B8D3E8;
+    text-align: center;
+    
+}
+.about-genbrug p {
+    font-family: "Alice", serif; 
+    font-size: 24px;
+    line-height: 1.5;
+    color: #B8D3E8;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    padding: 0 5%;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.horizontal-row-genbrug  {
+    display: flex;              /* горизонтальное расположение блоков */
+    margin: 0;                  /* убираем внешние отступы */
+    padding: 0;                 /* убираем внутренние отступы */
+    width: 100%;               /* секция на всю ширину экрана */
+}
+
+/* Общие стили для блоков */
+.horizontal-row-genbrug .block { 
+    flex: 1;                    /* каждый блок занимает равную ширину */
+    height: 400px;           /* фиксированная высота */
+    margin: 0;
+    padding: 0;
+    display: flex;           /* для центрирования контента внутри блока */
+    justify-content: center;
+    align-items: center;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* Фото */
+.photo-block1 img {
+    width: 100%;                /* фото растягивается на всю ширину блока */
+    height: 100%;               /* фото растягивается на всю высоту блока */
+    object-fit: cover;          /* кадрирование фото, чтобы заполнить блок */
+    display: block;             /* убираем пробелы под изображением */
+}
+
+/* Голубой блок */
+.blue-block {
+    background-color: #B8D3E8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blue-block a {
+    color: #8C1312;
+    font-family: "Alice", serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.blue-block a:hover {
+    transform: scale(1.05);
+    color: #8C1312;
+}
+
+/* Белый1 блок */
+.white1-block {
+    background-color: #EEEBE4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+.white1-block h4 {
+    color: #1E5128;
+    font-family: "Sacramento", cursive;
+    font-size: 32px;
+    margin-bottom: 20px; /* ⬅ расстояние до текста */
+    text-align: center;
+}
+.white1-block p {
+    color: #1E5128;
+    font-family: "Alice", serif;
+    font-size: 20px;
+    line-height: 1.5;
+    word-spacing: 1px;
+    width: 100%;     /* ✅ нормальная ширина текста */
+    padding: 0 30px;       /* центрирует блок текста */
+    text-align: center;
+}
+/* Белый2 блок */
+.white2-block {
+    background-color: #EEEBE4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+.white2-block h4 {
+    color: #1E5128;
+    font-family: "Sacramento", cursive;
+    font-size: 32px;
+    margin-bottom: 20px; /* ⬅ расстояние до текста */
+    text-align: center;
+}
+.white2-block p {
+    color: #1E5128;
+    font-family: "Alice", serif;
+    font-size: 20px;
+    line-height: 1.5;
+    word-spacing: 1px;
+    width: 100%;     /* ✅ нормальная ширина текста */
+    padding: 0 30px;       /* центрирует блок текста */
+    text-align: center;
+}
+@media (max-width: 900px) {
+    .horizontal-row-genbrug {
+        flex-direction: column; /* блоки выстраиваются вертикально */
+        height: auto;           /* высота подстраивается под контент */
+    }
+
+    .horizontal-row-genbrug .block {
+        width: 100%;
+        height: 300px;          /* можно уменьшить высоту для мобильного */
+    }
+
+    .photo-block img {
+        height: 100%;
+    }
+}
+.red-block {
+    background-color: #8C1312;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+/* Контейнер расписания */
+.red-block .schedule {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* два столбца одинаковой ширины */
+    gap: 10px 20px; /* вертикальный и горизонтальный промежуток */
+    text-align: center;
+}
+
+/* День недели */
+.red-block .schedule .day {
+    font-family: "Alice", serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #B8D3E8;
+}
+
+/* Время */
+.red-block .schedule .time {
+    font-family: "Alice", serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #B8D3E8;
+}
+/*Видео секция*/
+.full-width-video1 {
+    width: 100%;
+    background-color: #B8D3E8;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.video-wrapper1 {
+    position: relative;
+    padding-top: 56.25%;
+}
+
+.video-wrapper1 iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+.video-container1 {
+    width: 100%;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+.video-container1 .caption1 {
+    text-align: center;
+    color: #8C1312;
+    font-family: "Sacramento", cursive;
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+.social-links1 {
+    text-align: center;
+    margin-top: 10px;        /* расстояние от надписи */
+    display: flex;
+    justify-content: center; /* горизонтальное расположение ссылок */
+    gap: 20px;               /* расстояние между ссылками */
+}
+
+.social-links1 a {
+    text-decoration: none;   
+    color: #8C1312;                     /* цвет текста ссылок */
+    font-family: "Alice", serif;
+    font-size: 28px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.social-links1 a:hover {
+    color: #EEEBE4;          /* цвет при наведении */
+    transform: scale(1.05);  /* лёгкое увеличение */
+}
+
+.additional-caption1 {
+    text-align: center;
+    color: #8C1312;;                 /* цвет текста */
+    font-family: "Sacramento", cursive;
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 30px;                /* расстояние сверху от соцсетей */
+}
+/* Prag фон и шапка*/
+
+body.prag {
+    margin: 0;
+    padding: 0;
+    background-color: #BFC63A; /* Цвет фона для главной страницы */
+}
+.prag header {
+    background-color: #EF5F18;  /* Орфнжевый фон для шапки */
+    position: relative;  /* Чтобы псевдоэлементы ::before и ::after могли позиционироваться относительно header */
+    width: 100%; /* Ширина шапки на всю ширину страницы */
+}
+.prag header::before, 
+.prag header::after {
+    content: ""; /* Создаём пустой блок, без текста, иначе псевдоэлемент не отображается */
+    position: absolute; /* Абсолютное позиционирование относительно header */
+    left: 0; /* Левый край линии совпадает с левым краем header */
+    width: 100%;  /* Ширина линии равна ширине header */
+    height: 2px;      /* Толщина линии 2 пикселя */         
+    background-color: #251A66; /* Цвет линии — тёмно-зеленый */
+
+}
+.prag header::before {
+    top: 5px; /* Отступ от верхнего края header 5 пикселей */
+}
+
+.prag header::after {
+    bottom: 5px;  /* Отступ от нижнего края header 5 пикселей */
+}
+
+/* --- Меню для prag --- */
+.prag nav {
+    max-width: 1200px; /* Ограничивает ширину меню */
+    margin: 0 auto; /* Центрирует меню по горизонтали */
+    padding: 5px 20px; /* Отступы внутри nav */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.prag nav a {
+    text-decoration: none;
+    color: #251A66; /* Цвет текста ссылок */
+    font-family: "Cinzel Decorative", serif; /* шрифт меню */
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: 0.25s ease;
+}
+
+.prag nav a:hover {
+    transform: scale(1.08); /* Ссылка немного увеличивается при наведении */
+}
+
+/* --- Заголовок для prag --- */
+.prag-hero {
+    position: relative;                 /* чтобы текст можно было позиционировать поверх */
+    background-image: url('image/prag.png'); /* путь к твоему фото */
+    background-size: cover;             /* растягивает изображение, чтобы покрыть всю секцию */
+    background-position: center;        /* центрирует изображение */
+    height: 400px;                      /* высота секции (можно менять) */
+    display: flex;                      /* для центрирования текста */
+    justify-content: center;            /* горизонтально по центру */
+    align-items: center;     
+}
+.prag-hero .prag-title {
+    font-family: "Cinzel Decorative", serif; 
+    font-weight: 700;
+    font-style: normal;
+    font-size: 100px;
+    line-height: 3;
+    letter-spacing: 2px;
+    color: #EF5F18;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 30px 0 50px 0;
+}
+@media (max-width: 768px) {
+    .prag-hero .prag-title {
+        font-size: 50px;
+    } 
+}
+/* --- Описание для prag --- */
+.about-prag h2 {
+    font-family: "Sacramento", cursive; 
+    font-size: 48px;
+    color: #251A66;
+    text-align: center;
+    
+}
+
+.about-prag p {
+    font-family: "Alice", serif; 
+    font-size: 24px;
+    line-height: 1.5;
+    color: #251A66;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    padding: 0 5%;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.horizontal-row-prag  {
+    display: flex;              /* горизонтальное расположение блоков */
+    margin: 0;                  /* убираем внешние отступы */
+    padding: 0;                 /* убираем внутренние отступы */
+    width: 100%;               /* секция на всю ширину экрана */
+}
+
+/* Общие стили для блоков */
+.horizontal-row-prag .block { 
+    flex: 1;                    /* каждый блок занимает равную ширину */
+    height: 400px;           /* фиксированная высота */
+    margin: 0;
+    padding: 0;
+    display: flex;           /* для центрирования контента внутри блока */
+    justify-content: center;
+    align-items: center;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* Фото */
+.photo-block2 img {
+    width: 100%;                /* фото растягивается на всю ширину блока */
+    height: 100%;               /* фото растягивается на всю высоту блока */
+    object-fit: cover;          /* кадрирование фото, чтобы заполнить блок */
+    display: block;             /* убираем пробелы под изображением */
+}
+
+/* Синий блок */
+.darkblue-block {
+    background-color: #251A66;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.darkblue-block a {
+    color: #BFC63A;
+    font-family: "Alice", serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.darkblue-block a:hover {
+    transform: scale(1.05);
+    color: #BFC63A;
+}
+
+/* Зеленый */
+.lightgreen-block {
+    background-color: #BFC63A; /* светлозеленый */
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.lightgreen-block h4 {
+    color: #EF5F18;
+    font-family: "Sacramento", cursive;
+    font-size: 32px;
+    margin-bottom: 20px; /* ⬅ расстояние до текста */
+    text-align: center;
+}
+.lightgreen-block p {
+    color: #EF5F18;
+    font-family: "Alice", serif;
+    font-size: 20px;
+    line-height: 1.5;
+    word-spacing: 1px;
+    width: 100%;     /* ✅ нормальная ширина текста */
+    padding: 0 30px;       /* центрирует блок текста */
+    text-align: center;
+}
+
+
+/* Оранжевый блок */
+.orange-block {
+    background-color: #EF5F18;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    text-align: center;
+}
+.orange-block h4 {
+    color: #BFC63A;
+    font-family: "Sacramento", cursive;
+    font-size: 32px;
+    margin-bottom: 20px; /* ⬅ расстояние до текста */
+    text-align: center;
+}
+.orange-block p {
+    color: #BFC63A;
+    font-family: "Alice", serif;
+    font-size: 20px;
+    line-height: 1.5;
+    word-spacing: 1px;
+    width: 100%;     /* ✅ нормальная ширина текста */
+    padding: 0 30px;       /* центрирует блок текста */
+    text-align: center;
+} 
+.lightgreen-block,
+.orange-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 0; /* вертикальные отступы */
+}
+
+.lightgreen-block p,
+.orange-block p {
+    max-width: 500px;  /* увеличиваем максимальную ширину */
+    width: 100%;       /* чтобы занимало всю доступную ширину внутри max-width */
+    padding: 0 30px;   /* внутренние отступы для «воздуха» по бокам */
+    box-sizing: border-box;
+    margin: 0 auto;    /* центрируем блок текста */
+}
+
+    
+
+
+@media (max-width: 900px) {
+    .horizontal-row-prag {
+        flex-direction: column; /* блоки выстраиваются вертикально */
+        height: auto;           /* высота подстраивается под контент */
+    }
+
+    .horizontal-row-prag .block {
+        width: 100%;
+        height: 300px;          /* можно уменьшить высоту для мобильного */
+    }
+
+    .photo-block2 img {
+        height: 100%;
+    }
+}
+.darkblue2-block {
+    background-color: #251A66;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+.darkblue2-block .schedule {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* два столбца одинаковой ширины */
+    gap: 10px 20px; /* вертикальный и горизонтальный промежуток */
+    text-align: center;
+}
+
+/* День недели */
+.darkblue2-block .schedule .day {
+    font-family: "Alice", serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #BFC63A;
+}
+
+/* Время */
+.darkblue2-block .schedule .time {
+    font-family: "Alice", serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #BFC63A;
+}
+
+.shop-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+.svg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 400px;
+  overflow: visible;
+  margin-top: 50px;
+
+}
+
+.svg-container svg {
+  width: 60%;
+  height: auto;
+  display: block;
+  transform: scale(0.8); /* уменьшает, чтобы весь путь поместился */
+  transform-origin: top center;    /* чтобы убрать лишние отступы */
+}
+section {
+  padding-top: 50px; /* пространство сверху внутри секции */
+}
+
+.full-width-video2 {
+    width: 100%;                  /* фон на всю ширину */
+    background-color: #EF5F18;    /* фон */
+    display: flex;
+    justify-content: center;       /* центрирование видео */
+    padding: 50px 0;              /* отступ сверху и снизу */
+}
+
+.video-wrapper2 {
+    position: relative;
+    padding-top: 56.25%;
+}
+
+.video-wrapper2 iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+.video-container2 {
+    width: 100%;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+.video-container2 .caption2 {
+    text-align: center;
+    color: #BFC63A;
+    font-family: "Sacramento", cursive;
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+
+
+.social-links2 {
+    text-align: center;
+    margin-top: 10px;        /* расстояние от надписи */
+    display: flex;
+    justify-content: center; /* горизонтальное расположение ссылок */
+    gap: 20px;               /* расстояние между ссылками */
+}
+.social-links2 a {
+    text-decoration: none;   
+    color: #BFC63A;                     /* цвет текста ссылок */
+    font-family: "Alice", serif;
+    font-size: 28px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.social-links2 a:hover {
+    color: #251A66;          /* цвет при наведении */
+    transform: scale(1.05);  /* лёгкое увеличение */
+}
+.caption2 {
+    text-align: center;
+    color: #BFC63A;;                 /* цвет текста */
+    font-family: "Sacramento", cursive;
+    font-size: 40px;
+}
+.additional-caption2 {
+    text-align: center;
+    color: #BFC63A;;                 /* цвет текста */
+    font-family: "Sacramento", cursive;
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 30px;                /* расстояние сверху от соцсетей */
+}
+
+ #map {
+  height: 800px;             
+  width: 1000px;              
+  border: 30px solid #FFC2EC; /* рамка с нужной толщиной и цветом */
+  margin: 20px auto;         /* центрирование по горизонтали */
+  margin-top: -90px;
+}
